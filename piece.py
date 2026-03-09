@@ -2,18 +2,27 @@ class Piece:
     def __init__(self, colour, position):
         self.colour = colour
         self.position = position
+        self.letter = ""
 
-    def move(self, new_position):
-        self.position = new_position
-
-    def valid_moves(self,new_position):
-        return []
-
+    def position_to_board(self):
+        column = self.position[0]
+        line = int(self.position[1]) -1
+        return line,column
 
 class Bishop(Piece):
     def __init__(self, colour, position):
         super().__init__(colour, position)
+        if self.colour == "w":
+            self.letter = "B"
+        else:
+            self.letter = "b"
+        
 
-    def valid_moves(self, new_position):
-        # Implement logic for valid moves for a bishop
-        return []
+class Pawn(Piece):
+    def __init__(self, colour, position):
+        super().__init__(colour, position)
+        if self.colour == "w":
+            self.letter = "P"
+        else:
+            self.letter = "p"
+
