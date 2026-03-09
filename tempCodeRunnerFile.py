@@ -1,1 +1,0 @@
-print_board_white()
